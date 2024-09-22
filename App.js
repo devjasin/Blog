@@ -1,5 +1,7 @@
 const express = require("express");
+const { createBlog } = require("./controller/blogcontroller");
 const app = express();
+const blogRoute = require("./routes/blogRoutes");
 app.set("view engine", "ejs");
 app.listen(3000, () => {
   console.log("server is running at 3000 portnumber");
@@ -27,12 +29,6 @@ app.get("/contact", (req, res) => {
 });
 
 //incase if we use react for front end than our code will be
-/* 
-app.get("/contact",(req,res)=>{
-  res.json({
-  message:"you hitted create route"
-  })
-  })
 
-
-*/
+app.get("/api", createBlog);
+app.use("/guju/", createBlog);
