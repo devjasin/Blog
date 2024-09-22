@@ -2,6 +2,7 @@ const express = require("express");
 const { createBlog } = require("./controller/blogcontroller");
 const app = express();
 const blogRoute = require("./routes/blogRoutes");
+require("./model/index");
 app.set("view engine", "ejs");
 app.listen(3000, () => {
   console.log("server is running at 3000 portnumber");
